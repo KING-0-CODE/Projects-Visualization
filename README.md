@@ -20,3 +20,11 @@
 #### [Stage URL Kibana Frontend](https:)
 
 #### [Production URL](https:)
+
+## Team
+
+* Product Owner: []()
+* Project manager: []()
+* BE Dev: [Mehran Hosseini](mehran.hosseini@ebcont.com)
+* BE Dev: [Sadra Babai](adrian.ryszka@ebcont.com)
+* Production: []()
