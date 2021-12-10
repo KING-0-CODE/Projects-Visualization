@@ -21,10 +21,16 @@
 
 #### [Production URL](https:)
 
-## Team
+### Team
 
 * Product Owner: []()
 * Project manager: []()
-* BE Dev: [Mehran Hosseini](mehran.hosseini@ebcont.com)
-* BE Dev: [Sadra Babai](adrian.ryszka@ebcont.com)
+* BE Dev: [Mehran Hosseini](AjaxCube@Gmail.com)
+* BE Dev: [Sadra Babai]()
 * Production: []()
+
+
+### Useful Documentation for this App:
+####[GitHub Doc](https://docs.github.com/en/rest/reference/repos)
+####[Elasticsearch](https://docs.github.com/en/rest/reference/repos)
+####[Kibana](https://docs.github.com/en/rest/reference/repos)
