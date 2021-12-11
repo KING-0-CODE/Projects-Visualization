@@ -1,7 +1,7 @@
 package com.kingcode.projectsvisualization.infrastructure;
 
-import com.kingcode.projectsvisualization.application.commits.GitHubCommit;
-import com.kingcode.projectsvisualization.application.projects.GitHubProject;
+import com.kingcode.projectsvisualization.application.commits.Commit;
+import com.kingcode.projectsvisualization.application.projects.Project;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +20,12 @@ public class ProjectsVisualizationController {
     }
 
     @GetMapping("/api/projects")
-    public ResponseEntity<List<GitHubProject>> getAllProjects() {
+    public ResponseEntity<List<Project>> getAllProjects() {
         return ResponseEntity.ok(List.of());
     }
 
     @GetMapping("/api/commits")
-    public ResponseEntity<List<GitHubCommit>> getAllCommits() {
+    public ResponseEntity<List<Commit>> getAllCommits() {
         return ResponseEntity.ok(List.of());
     }
 

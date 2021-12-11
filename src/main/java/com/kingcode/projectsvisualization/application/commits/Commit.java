@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 
 @Data
-public class GitHubCommit {
+public class Commit {
     @Id
     private String id;
     private Date createdAt;
