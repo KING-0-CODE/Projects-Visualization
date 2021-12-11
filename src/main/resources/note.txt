@@ -1,1 +1,9 @@
 After every session please write what have we done and what has to be done :)
+What we did:
+we created models and service and we implemented elastic search repo and we installed elsatic search and kibana and we created a temporary controller to test outputs.
+
+Next steps:
+implements ToDos methods
+then add save methods for Elastic and add method controller
+Design kibanna diagram visualization
+create a Docker file to set up all necessary environments for the project.
