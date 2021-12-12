@@ -15,6 +15,6 @@ public class GitHubApiConfig {
 
     @Bean
     public GitHub gitHub() throws IOException {
-        return new GitHubBuilder().withOAuthToken(gitHubCredentials.getToken()).build();
+        return new GitHubBuilder().withOAuthToken(gitHubCredentials.getAccessToken()).build();
     }
 }

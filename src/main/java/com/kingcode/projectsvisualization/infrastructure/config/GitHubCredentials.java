@@ -10,5 +10,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration("GitHubCredentials")
 @ConfigurationProperties(prefix = "github")
 public class GitHubCredentials {
-    private String token;
+    private String accessToken;
 }
