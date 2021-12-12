@@ -21,37 +21,42 @@ import java.util.List;
 public class ProjectsVisualizationController {
 
     private final MyGitHub gitHub;
-    private final CommitService commitService;
-    private final ProjectService projectService;
 
     @GetMapping("/api")
     public ResponseEntity<String> welcomeHome() {
         return ResponseEntity.ok("Welcome Home");
     }
 
-    @GetMapping("/api/projects")
-    public ResponseEntity<List<ProjectEntity>> getAllProjects() throws IOException {
-        List<ProjectEntity> projects = gitHub.getProjects();
-       //    projectService.saveAllProjectToElastic(projects);
-        return ResponseEntity.ok(projects);
-    }
-
-    @GetMapping("/api/commits")
-    public ResponseEntity<List<CommitEntity>> getAllCommits() throws IOException {
-        List<CommitEntity> allCommits = gitHub.getAllCommits();
-        commitService.saveAllCommitsToElastic(allCommits);
-        return ResponseEntity.ok(allCommits);
-    }
-
-    @GetMapping("/api/organizations")
-    public ResponseEntity< List<GHOrganization>> getOrganizations() throws IOException {
-        return ResponseEntity.ok(gitHub.getOrganizations());
-    }
-
     @PostMapping("/api/projects")
-    public ResponseEntity<String> postAllProjects() {
-        return ResponseEntity.ok("ProjectEntity saved");
+    public ResponseEntity<Iterable<ProjectEntity>> postAllProjects() throws IOException {
+        return ResponseEntity.ok(gitHub.saveProjects());
     }
+
+    @GetMapping("/api/projects")
+    public ResponseEntity<Iterable<ProjectEntity>> getAllProjects() throws IOException {
+        return ResponseEntity.ok(gitHub.getProjects());
+    }
+
+//    @GetMapping("/api/projects")
+//    public ResponseEntity<List<ProjectEntity>> getAllProjects() throws IOException {
+//        List<ProjectEntity> projects = gitHub.getProjects();
+//       //    projectService.saveAllProjectToElastic(projects);
+//        return ResponseEntity.ok(projects);
+//    }
+//
+//    @GetMapping("/api/commits")
+//    public ResponseEntity<List<CommitEntity>> getAllCommits() throws IOException {
+//        List<CommitEntity> allCommits = gitHub.getAllCommits();
+//        commitService.saveAllCommitsToElastic(allCommits);
+//        return ResponseEntity.ok(allCommits);
+//    }
+//
+//    @GetMapping("/api/organizations")
+//    public ResponseEntity< List<GHOrganization>> getOrganizations() throws IOException {
+//        return ResponseEntity.ok(gitHub.getOrganizations());
+//    }
+
+
 
     @PostMapping("/api/commits")
     public ResponseEntity<String> postAllCommits() {

@@ -11,11 +11,11 @@ import java.util.List;
 public class ProjectService {
     private final ProjectRepo projectRepo;
 
-    public void saveAllProjectToElastic(List<ProjectEntity> projects) {
-        projectRepo.saveAll(projects);
+    public Iterable<ProjectEntity> saveAllProjectToElastic(List<ProjectEntity> projects) {
+        return projectRepo.saveAll(projects);
     }
 
-    public Iterable<ProjectEntity> getAllProjectFromElastic() {
+    public Iterable<ProjectEntity> findAllProjectFromElastic() {
         return projectRepo.findAll();
     }
 }

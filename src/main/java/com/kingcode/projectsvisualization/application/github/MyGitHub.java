@@ -10,7 +10,9 @@ import java.util.List;
 
 public interface MyGitHub {
 
-    List<ProjectEntity> getProjects() throws IOException;
+    Iterable<ProjectEntity> getProjects() throws IOException;
+
+    Iterable<ProjectEntity> saveProjects() throws IOException;
 
     List<CommitEntity> getAllCommits() throws IOException;
 

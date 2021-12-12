@@ -2,18 +2,14 @@ package com.kingcode.projectsvisualization.application.github;
 
 import com.kingcode.projectsvisualization.application.commits.CommitEntity;
 import com.kingcode.projectsvisualization.application.projects.ProjectEntity;
+import com.kingcode.projectsvisualization.application.projects.ProjectService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.kohsuke.github.*;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -21,17 +17,23 @@ import java.util.stream.Collectors;
 public class MyGitHubImpl implements MyGitHub {
 
     private final GitHub gitHubApi;
+    private final ProjectService projectService;
 
     @Override
-    public List<ProjectEntity> getProjects() throws IOException {
-        return gitHubApi.getMyself().getAllRepositories().values().stream().map(ghRepository -> {
-            try {
-                return ProjectEntity.toProject(ghRepository);
-            } catch (IOException e) {
-                log.error("Could not get any project!", e);
-                throw new UncheckedIOException(e);
-            }
-        }).collect(Collectors.toList());
+    public Iterable<ProjectEntity> saveProjects() throws IOException {
+        log.info("Fetching data to create a projectEntities...");
+        Map<String, GHRepository> allRepositories = gitHubApi.getMyself().getAllRepositories();
+        List<ProjectEntity> projectEntities = new ArrayList<>();
+        for (GHRepository g : new ArrayList<>(allRepositories.values())) {
+            ProjectEntity projectEntity = ProjectEntity.toProject(g);
+            projectEntities.add(projectEntity);
+        }
+        return projectService.saveAllProjectToElastic(projectEntities);
+    }
+
+    @Override
+    public Iterable<ProjectEntity> getProjects() throws IOException {
+        return projectService.findAllProjectFromElastic();
     }
 
     @Override
