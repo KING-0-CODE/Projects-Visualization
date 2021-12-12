@@ -4,5 +4,5 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CommitRepo extends ElasticsearchRepository<Commit, String> {
+public interface CommitRepo extends ElasticsearchRepository<CommitEntity, String> {
 }

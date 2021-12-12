@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Builder
 @Document(indexName = "#{@environment.getProperty('elasticsearch.index.github.commits')}")
-public class Commit {
+public class CommitEntity {
 
     @Id
     private final String id;
@@ -22,15 +22,15 @@ public class Commit {
     private final String authorName;
     private final String authorEmail;
 
-    public static Commit toCommit(GHCommit ghCommit) throws IOException {
+    public static CommitEntity toCommit(GHCommit ghCommit) throws IOException {
         String[] split = ghCommit.getUrl().toString().split("/");
         String id = split[split.length - 1];
-        return Commit.builder()
-                .id(id)
-                .authorEmail(ghCommit.getCommitShortInfo().getAuthor().getEmail())
-                .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
-                .message(ghCommit.getCommitShortInfo().getMessage())
-                .createdAt(ghCommit.getCommitDate())
-                .build();
+        return CommitEntity.builder()
+            .id(id)
+            .createdAt(ghCommit.getCommitDate())
+            .message(ghCommit.getCommitShortInfo().getMessage())
+            .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
+            .authorEmail(ghCommit.getCommitShortInfo().getAuthor().getEmail())
+            .build();
     }
 }
