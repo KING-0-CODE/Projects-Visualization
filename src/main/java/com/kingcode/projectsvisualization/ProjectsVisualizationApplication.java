@@ -8,10 +8,10 @@ public class ProjectsVisualizationApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProjectsVisualizationApplication.class, args);
         System.out.println();
-        System.out.println("                                                        ##################################################################");
-        System.out.println("                                         ###############            Server started - Projects-Visualization Project        ###############");
-        System.out.println("                                                                               CLEAN CODE IS THE ANSWER");
-        System.out.println("                                                        ##################################################################");
+        System.out.println("                                                                ##################################################################");
+        System.out.println("                                                 ###############            Server started - Projects-Visualization Project        ###############");
+        System.out.println("                                                                                       CLEAN CODE IS THE ANSWER");
+        System.out.println("                                                                ##################################################################");
         System.out.println();
     }
 }
