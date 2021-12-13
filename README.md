@@ -21,6 +21,50 @@
 
 #### [Production URL](https:)
 
+## Backend
+
+### Docker
+We use docker-compose to set up ElasticSearch and Kibana, which is needed to run the application.  
+Please follow these steps:
+###### 1. Install Docker
+Docker Desktop provides you a Desktop solution for managing your containers (including Docker Engine, Docker Compose)
+https://www.docker.com/products/docker-desktop
+###### 2. Run the containers
+Open *<projectPath>\src\main\resources\docker* in command line or right-click on docker folder in IntelliJ and select *"Open in / Terminal"*
+To build, (re)create and start your containers in an interactive shell, type the following command.
+```
+docker-compose up
+```
+With parameter *-d* it is possible to let docker container run as a daemon which means that the docker container would run in the background completely detached from your current shell.
+```
+docker-compose up -d
+```
+If you want to start a specific container, type the following command.
+```
+docker-compose up -d <containerName>
+```
+To list your containers, type the following command.
+```
+docker-compose ps -a
+```
+```
+NAME                COMMAND                  SERVICE             STATUS
+     PORTS
+elasticsearch       "/bin/tini -- /usr/l…"   elasticsearch       running        
+     0.0.0.0:9201->9200/tcp, 0.0.0.0:9301->9300/tcp
+kibana              "/bin/tini -- /usr/l…"   kibana              running        
+     0.0.0.0:5601->5601/tcp
+```
+The following command stops containers and removes containers, networks, volumes, and images created by *docker-compose up*.
+```
+docker-compose down
+```
+For further explanations, please see the [docker-compse reference](https://docs.docker.com/compose/reference/).
+
+
+
+
+
 ### Team
 
 * Product Owner: []()
