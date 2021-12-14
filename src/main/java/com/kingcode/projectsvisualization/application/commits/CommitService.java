@@ -10,8 +10,8 @@ import java.util.List;
 public class CommitService {
     private final CommitRepo commitRepo;
 
-    public Iterable<CommitEntity> saveAllCommitsToElastic(List<CommitEntity> commits) {
-        return commitRepo.saveAll(commits);
+    public void saveAllCommitsToElastic(List<CommitEntity> commits) {
+        commitRepo.saveAll(commits);
     }
 
     public Iterable<CommitEntity> getAllCommitsFromElastic() {

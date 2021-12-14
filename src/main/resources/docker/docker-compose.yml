@@ -30,7 +30,7 @@ services:
     container_name: kibana
     environment:
       SERVER_NAME: kibana.KingCode.org
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9201
     ports:
       - 5600:5601
     networks:

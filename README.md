@@ -61,9 +61,35 @@ docker-compose down
 ```
 For further explanations, please see the [docker-compse reference](https://docs.docker.com/compose/reference/).
 
+### Elastic 
+#### To check elasticsearch server go to ```http://localhost:9200/```
+
+### Kibana
+#### To check Kibana server go to ```http://localhost:5601/app/dev_tools#/console```
+#### User these commands for queries:
+```
+GET _cluster/health
+
+GET _nodes/stats
+
+GET king_code_projectsvisualization_github_projects
+
+PUT king_code_projectsvisualization_github_projects
+
+PUT github_projects
+
+POST githubcommits/_doc 
+{
+  "message":"message..."
+}
+
+PUT github_commits/_doc/1
+{
+  "message":"message..."
+}
 
 
-
+```
 
 ### Team
 
