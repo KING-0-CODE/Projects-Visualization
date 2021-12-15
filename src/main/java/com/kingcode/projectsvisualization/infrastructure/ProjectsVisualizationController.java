@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController("/")
 @AllArgsConstructor
@@ -23,8 +24,8 @@ public class ProjectsVisualizationController {
     }
 
     @PostMapping("/commits")
-    public ResponseEntity<String> saveAllCommits() throws IOException {
-        return ResponseEntity.ok("Commits saved");
+    public ResponseEntity<List<CommitEntity>> saveAllCommits() throws IOException {
+        return ResponseEntity.ok(myGitHub.saveAllCommits());
     }
 
     @GetMapping("/commits")

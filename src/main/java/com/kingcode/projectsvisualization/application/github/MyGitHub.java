@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface MyGitHub {
 
-    void saveAllCommits() throws IOException;
+    List<CommitEntity> saveAllCommits() throws IOException;
 
     Iterable<CommitEntity> getAllCommits() throws IOException;
 }
