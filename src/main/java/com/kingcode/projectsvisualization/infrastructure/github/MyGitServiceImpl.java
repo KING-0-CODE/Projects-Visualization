@@ -1,4 +1,4 @@
-package com.kingcode.projectsvisualization.application.github;
+package com.kingcode.projectsvisualization.infrastructure.github;
 
 //import com.kingcode.projectsvisualization.application.projects.RepositoryEntity;
 //import com.kingcode.projectsvisualization.application.projects.RepositoryService;
