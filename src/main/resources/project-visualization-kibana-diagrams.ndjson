@@ -1,4 +1,182 @@
-{"attributes":{"fieldAttrs":"{}","fields":"[]","runtimeFieldMap":"{}","timeFieldName":"","title":"king_code_projectsvisualization_github_commits","typeMeta":"{}"},"coreMigrationVersion":"7.15.2","id":"c01b45c0-5d37-11ec-88cb-9b3f1746a67b","migrationVersion":{"index-pattern":"7.11.0"},"references":[],"type":"index-pattern","updated_at":"2021-12-14T23:44:16.924Z","version":"WzQ1LDFd"}
-{"attributes":{"description":"Projects according to project owner repo","state":{"datasourceStates":{"indexpattern":{"layers":{"11d9982c-767c-4320-94d4-08655e35cf58":{"columnOrder":["86bac8d3-b43a-44f5-8a5b-17b2eb88f5ae","38b8aa4e-bc60-4050-a369-c3827c6d2271"],"columns":{"38b8aa4e-bc60-4050-a369-c3827c6d2271":{"customLabel":true,"dataType":"number","isBucketed":false,"label":"Projects","operationType":"count","scale":"ratio","sourceField":"Records"},"86bac8d3-b43a-44f5-8a5b-17b2eb88f5ae":{"dataType":"string","isBucketed":true,"label":"Top values of ownerRepoName.keyword","operationType":"terms","params":{"missingBucket":false,"orderBy":{"columnId":"38b8aa4e-bc60-4050-a369-c3827c6d2271","type":"column"},"orderDirection":"asc","otherBucket":true,"size":21},"scale":"ordinal","sourceField":"ownerRepoName.keyword"}},"incompleteColumns":{}}}}},"filters":[],"query":{"language":"kuery","query":""},"visualization":{"layers":[{"categoryDisplay":"inside","groups":["86bac8d3-b43a-44f5-8a5b-17b2eb88f5ae"],"layerId":"11d9982c-767c-4320-94d4-08655e35cf58","layerType":"data","legendDisplay":"show","legendPosition":"right","metric":"38b8aa4e-bc60-4050-a369-c3827c6d2271","nestedLegend":false,"numberDisplay":"percent"}],"palette":{"name":"status","type":"palette"},"shape":"donut"}},"title":"Projects","visualizationType":"lnsPie"},"coreMigrationVersion":"7.15.2","id":"2cf8b010-5d38-11ec-88cb-9b3f1746a67b","migrationVersion":{"lens":"7.15.0"},"references":[{"id":"c01b45c0-5d37-11ec-88cb-9b3f1746a67b","name":"indexpattern-datasource-current-indexpattern","type":"index-pattern"},{"id":"c01b45c0-5d37-11ec-88cb-9b3f1746a67b","name":"indexpattern-datasource-layer-11d9982c-767c-4320-94d4-08655e35cf58","type":"index-pattern"}],"type":"lens","updated_at":"2021-12-14T23:53:24.054Z","version":"WzIwNywxXQ=="}
-{"attributes":{"description":"Projects-Visualization Kibana Visualization","hits":0,"kibanaSavedObjectMeta":{"searchSourceJSON":"{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"},"optionsJSON":"{\"useMargins\":true,\"syncColors\":false,\"hidePanelTitles\":false}","panelsJSON":"[{\"version\":\"7.15.2\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"3fbf93a8-3d08-4c92-9843-ca8bf3695f04\"},\"panelIndex\":\"3fbf93a8-3d08-4c92-9843-ca8bf3695f04\",\"embeddableConfig\":{\"enhancements\":{},\"timeRange\":{\"from\":\"now-30d/d\",\"to\":\"now\"}},\"panelRefName\":\"panel_3fbf93a8-3d08-4c92-9843-ca8bf3695f04\"}]","timeRestore":false,"title":"Projects-Visualization","version":1},"coreMigrationVersion":"7.15.2","id":"a1c9c730-5d38-11ec-88cb-9b3f1746a67b","migrationVersion":{"dashboard":"7.15.0"},"references":[{"id":"2cf8b010-5d38-11ec-88cb-9b3f1746a67b","name":"3fbf93a8-3d08-4c92-9843-ca8bf3695f04:panel_3fbf93a8-3d08-4c92-9843-ca8bf3695f04","type":"lens"}],"type":"dashboard","updated_at":"2021-12-14T23:56:46.948Z","version":"WzI2NywxXQ=="}
-{"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":3,"missingRefCount":0,"missingReferences":[]}
+{
+  "attributes": {
+    "fieldAttrs": "{}",
+    "fields": "[]",
+    "runtimeFieldMap": "{}",
+    "timeFieldName": "commitDate",
+    "title": "king_code_projectsvisualization_github_commits*",
+    "typeMeta": "{}"
+  },
+  "coreMigrationVersion": "7.15.2",
+  "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+  "migrationVersion": {
+    "index-pattern": "7.11.0"
+  },
+  "references": [],
+  "type": "index-pattern",
+  "updated_at": "2021-12-15T14:40:12.567Z",
+  "version": "WzQwNDgsMjRd"
+}
+{
+  "attributes": {
+    "description": "",
+    "state": {
+      "datasourceStates": {
+        "indexpattern": {
+          "layers": {
+            "03ca5df9-b755-4f33-85f2-53bb1ee10ac6": {
+              "columnOrder": [
+                "c38bc9cd-4eb3-4f3d-bf3c-47a0a6662204",
+                "7c463dbc-faeb-4660-89e9-3f8d16be9f84"
+              ],
+              "columns": {
+                "7c463dbc-faeb-4660-89e9-3f8d16be9f84": {
+                  "customLabel": true,
+                  "dataType": "number",
+                  "isBucketed": false,
+                  "label": "Commit count",
+                  "operationType": "count",
+                  "scale": "ratio",
+                  "sourceField": "Records"
+                },
+                "c38bc9cd-4eb3-4f3d-bf3c-47a0a6662204": {
+                  "dataType": "date",
+                  "isBucketed": true,
+                  "label": "commitDate",
+                  "operationType": "date_histogram",
+                  "params": {
+                    "interval": "auto"
+                  },
+                  "scale": "interval",
+                  "sourceField": "commitDate"
+                }
+              },
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "filters": [],
+      "query": {
+        "language": "kuery",
+        "query": ""
+      },
+      "visualization": {
+        "layers": [
+          {
+            "accessors": [
+              "7c463dbc-faeb-4660-89e9-3f8d16be9f84"
+            ],
+            "layerId": "03ca5df9-b755-4f33-85f2-53bb1ee10ac6",
+            "layerType": "data",
+            "position": "top",
+            "seriesType": "bar",
+            "showGridlines": false,
+            "xAccessor": "c38bc9cd-4eb3-4f3d-bf3c-47a0a6662204"
+          }
+        ],
+        "legend": {
+          "isVisible": true,
+          "position": "right"
+        },
+        "preferredSeriesType": "bar",
+        "title": "Empty XY chart",
+        "valueLabels": "hide",
+        "yLeftExtent": {
+          "mode": "full"
+        },
+        "yRightExtent": {
+          "mode": "full"
+        }
+      }
+    },
+    "title": "Commit Date Count",
+    "visualizationType": "lnsXY"
+  },
+  "coreMigrationVersion": "7.15.2",
+  "id": "3f5854e0-5db5-11ec-8e2f-a992f0a27ccf",
+  "migrationVersion": {
+    "lens": "7.15.0"
+  },
+  "references": [
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "indexpattern-datasource-current-indexpattern",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "indexpattern-datasource-layer-03ca5df9-b755-4f33-85f2-53bb1ee10ac6",
+      "type": "index-pattern"
+    }
+  ],
+  "type": "lens",
+  "updated_at": "2021-12-15T14:42:37.486Z",
+  "version": "WzQwODcsMjRd"
+}
+{
+  "attributes": {
+    "description": "",
+    "hits": 0,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"hidePanelTitles\":false}",
+    "panelsJSON": "[{\"version\":\"7.15.2\",\"type\":\"lens\",\"gridData\":{\"x\":1,\"y\":0,\"w\":33,\"h\":15,\"i\":\"35a334be-01b8-450f-a1a9-2be2cc0ac92e\"},\"panelIndex\":\"35a334be-01b8-450f-a1a9-2be2cc0ac92e\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_35a334be-01b8-450f-a1a9-2be2cc0ac92e\"},{\"version\":\"7.15.2\",\"type\":\"lens\",\"gridData\":{\"x\":34,\"y\":0,\"w\":8,\"h\":8,\"i\":\"ecf9e748-ce25-499b-b3fb-ea4c5beff9ac\"},\"panelIndex\":\"ecf9e748-ce25-499b-b3fb-ea4c5beff9ac\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsMetric\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-current-indexpattern\"},{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-layer-7a6c8a60-f552-47a6-b010-850f25de9834\"}],\"state\":{\"visualization\":{\"layerId\":\"7a6c8a60-f552-47a6-b010-850f25de9834\",\"accessor\":\"1fad25bc-2a2d-4a03-8b41-604ba4985ab2\",\"layerType\":\"data\"},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"7a6c8a60-f552-47a6-b010-850f25de9834\":{\"columns\":{\"1fad25bc-2a2d-4a03-8b41-604ba4985ab2\":{\"label\":\"Number Of Commits\",\"dataType\":\"number\",\"operationType\":\"unique_count\",\"scale\":\"ratio\",\"sourceField\":\"commitDate\",\"isBucketed\":false,\"customLabel\":true}},\"columnOrder\":[\"1fad25bc-2a2d-4a03-8b41-604ba4985ab2\"],\"incompleteColumns\":{}}}}}}},\"enhancements\":{}}},{\"version\":\"7.15.2\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":15,\"w\":22,\"h\":15,\"i\":\"708b4527-d01f-4498-8112-47132ee05c1b\"},\"panelIndex\":\"708b4527-d01f-4498-8112-47132ee05c1b\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsXY\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-current-indexpattern\"},{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-layer-ddbd6aaf-b3ee-4af8-9b44-32fbbe92bfa4\"}],\"state\":{\"visualization\":{\"legend\":{\"isVisible\":true,\"position\":\"right\",\"showSingleSeries\":false,\"isInside\":false},\"valueLabels\":\"hide\",\"fittingFunction\":\"None\",\"yLeftExtent\":{\"mode\":\"full\"},\"yRightExtent\":{\"mode\":\"full\"},\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"preferredSeriesType\":\"bar_horizontal\",\"layers\":[{\"layerId\":\"ddbd6aaf-b3ee-4af8-9b44-32fbbe92bfa4\",\"accessors\":[\"333806ec-d18c-449d-914c-caf860dd8169\"],\"position\":\"top\",\"seriesType\":\"bar_horizontal\",\"showGridlines\":false,\"layerType\":\"data\",\"xAccessor\":\"5ce54f18-5d58-4323-a397-948334817a2f\",\"splitAccessor\":\"0353df30-85ba-4589-b7e2-38b9a0328be4\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"ddbd6aaf-b3ee-4af8-9b44-32fbbe92bfa4\":{\"columns\":{\"0353df30-85ba-4589-b7e2-38b9a0328be4\":{\"label\":\"Top values of authorEmail.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"authorEmail.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"333806ec-d18c-449d-914c-caf860dd8169\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false}},\"5ce54f18-5d58-4323-a397-948334817a2f\":{\"label\":\"Top values of authorName.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"authorName.keyword\",\"isBucketed\":true,\"params\":{\"size\":8,\"orderBy\":{\"type\":\"column\",\"columnId\":\"333806ec-d18c-449d-914c-caf860dd8169\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false}},\"333806ec-d18c-449d-914c-caf860dd8169\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"Records\"}},\"columnOrder\":[\"0353df30-85ba-4589-b7e2-38b9a0328be4\",\"5ce54f18-5d58-4323-a397-948334817a2f\",\"333806ec-d18c-449d-914c-caf860dd8169\"],\"incompleteColumns\":{}}}}}}},\"enhancements\":{}}},{\"version\":\"7.15.2\",\"type\":\"lens\",\"gridData\":{\"x\":22,\"y\":15,\"w\":13,\"h\":15,\"i\":\"713f5030-56a8-4bf2-9f18-3a94311186b3\"},\"panelIndex\":\"713f5030-56a8-4bf2-9f18-3a94311186b3\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-current-indexpattern\"},{\"type\":\"index-pattern\",\"id\":\"e8f77270-5db4-11ec-8e2f-a992f0a27ccf\",\"name\":\"indexpattern-datasource-layer-3ac162b4-2fbd-4f3c-b6c9-602aefe79e2d\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"3ac162b4-2fbd-4f3c-b6c9-602aefe79e2d\",\"groups\":[\"93e6e361-665e-4f72-b466-bb8cae170de6\"],\"metric\":\"d3b64aa5-ca87-4c99-bd4d-089665610796\",\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"indexpattern\":{\"layers\":{\"3ac162b4-2fbd-4f3c-b6c9-602aefe79e2d\":{\"columns\":{\"93e6e361-665e-4f72-b466-bb8cae170de6\":{\"label\":\"Top values of ownerRepoName.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"ownerRepoName.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"d3b64aa5-ca87-4c99-bd4d-089665610796\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false}},\"d3b64aa5-ca87-4c99-bd4d-089665610796\":{\"label\":\"Projects\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"Records\",\"customLabel\":true}},\"columnOrder\":[\"93e6e361-665e-4f72-b466-bb8cae170de6\",\"d3b64aa5-ca87-4c99-bd4d-089665610796\"],\"incompleteColumns\":{}}}}}}},\"enhancements\":{}}}]",
+    "timeRestore": false,
+    "title": "Project-Visualization",
+    "version": 1
+  },
+  "coreMigrationVersion": "7.15.2",
+  "id": "4db3b750-5db5-11ec-8e2f-a992f0a27ccf",
+  "migrationVersion": {
+    "dashboard": "7.15.0"
+  },
+  "references": [
+    {
+      "id": "3f5854e0-5db5-11ec-8e2f-a992f0a27ccf",
+      "name": "35a334be-01b8-450f-a1a9-2be2cc0ac92e:panel_35a334be-01b8-450f-a1a9-2be2cc0ac92e",
+      "type": "lens"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "ecf9e748-ce25-499b-b3fb-ea4c5beff9ac:indexpattern-datasource-current-indexpattern",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "ecf9e748-ce25-499b-b3fb-ea4c5beff9ac:indexpattern-datasource-layer-7a6c8a60-f552-47a6-b010-850f25de9834",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "708b4527-d01f-4498-8112-47132ee05c1b:indexpattern-datasource-current-indexpattern",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "708b4527-d01f-4498-8112-47132ee05c1b:indexpattern-datasource-layer-ddbd6aaf-b3ee-4af8-9b44-32fbbe92bfa4",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "713f5030-56a8-4bf2-9f18-3a94311186b3:indexpattern-datasource-current-indexpattern",
+      "type": "index-pattern"
+    },
+    {
+      "id": "e8f77270-5db4-11ec-8e2f-a992f0a27ccf",
+      "name": "713f5030-56a8-4bf2-9f18-3a94311186b3:indexpattern-datasource-layer-3ac162b4-2fbd-4f3c-b6c9-602aefe79e2d",
+      "type": "index-pattern"
+    }
+  ],
+  "type": "dashboard",
+  "updated_at": "2021-12-15T14:49:17.464Z",
+  "version": "WzQyMTUsMjRd"
+}
+{
+  "excludedObjects": [],
+  "excludedObjectsCount": 0,
+  "exportedCount": 3,
+  "missingRefCount": 0,
+  "missingReferences": []
+}
