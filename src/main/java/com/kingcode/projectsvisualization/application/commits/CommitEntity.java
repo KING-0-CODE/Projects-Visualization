@@ -27,15 +27,20 @@ public class CommitEntity {
     private final String authorEmail;
     private final String ownerRepoName;
 
-    public static CommitEntity toCommit(GHCommit ghCommit) throws IOException {
+    public static CommitEntity toCommit(GHCommit ghCommit)  {
         String id = ghCommit.getUrl().toString().split("/")[ghCommit.getUrl().toString().split("/").length - 1];
-        return CommitEntity.builder()
-            .id(id)
-            .commitShortInfo(ghCommit.getCommitShortInfo().getMessage())
-            .commitDate(ghCommit.getCommitDate())
-            .authorEmail(ghCommit.getAuthor().getName())
-            .authorName(ghCommit.getCommitShortInfo().getAuthor().getEmail())
-            .ownerRepoName(ghCommit.getOwner().getName())
-            .build();
+        try {
+            return CommitEntity.builder()
+                .id(id)
+                .commitShortInfo(ghCommit.getCommitShortInfo().getMessage())
+                .commitDate(ghCommit.getCommitDate())
+                .authorEmail(ghCommit.getAuthor().getEmail())
+                .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
+                .ownerRepoName(ghCommit.getOwner().getName())
+                .build();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }
