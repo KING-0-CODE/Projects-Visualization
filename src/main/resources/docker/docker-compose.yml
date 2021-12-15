@@ -20,7 +20,7 @@ services:
         source: esdata
         target: /usr/share/elasticsearch/data
     ports:
-      - 9200:9201
+      - 9201:9200
       - 9301:9300
     networks:
       - elk
@@ -30,9 +30,9 @@ services:
     container_name: kibana
     environment:
       SERVER_NAME: kibana.KingCode.org
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9201
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
     ports:
-      - 5600:5601
+      - 5601:5601
     networks:
       - elk
 
