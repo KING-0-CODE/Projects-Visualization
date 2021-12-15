@@ -2,7 +2,8 @@ package com.kingcode.projectsvisualization.infrastructure;
 
 
 import com.kingcode.projectsvisualization.application.commits.CommitEntity;
-import com.kingcode.projectsvisualization.application.github.MyGitHub;
+import com.kingcode.projectsvisualization.application.commits.CommitService;
+import com.kingcode.projectsvisualization.infrastructure.github.MyGitHub;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProjectsVisualizationController {
 
-    private final MyGitHub myGitHub;
+    private final CommitService commitService;
 
     @GetMapping("/api")
     public ResponseEntity<String> welcomeHome() {
@@ -25,11 +26,11 @@ public class ProjectsVisualizationController {
 
     @PostMapping("/commits")
     public ResponseEntity<List<CommitEntity>> saveAllCommits() throws IOException {
-        return ResponseEntity.ok(myGitHub.saveAllCommits());
+        return ResponseEntity.ok(commitService.saveAllCommitsToElastic());
     }
 
     @GetMapping("/commits")
     public ResponseEntity<Iterable<CommitEntity>> getAllCommits() throws IOException {
-        return ResponseEntity.ok(myGitHub.getAllCommits());
+        return ResponseEntity.ok(commitService.getAllCommitsFromElastic());
     }
 }
