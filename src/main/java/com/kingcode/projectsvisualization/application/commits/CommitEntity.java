@@ -12,6 +12,9 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -33,9 +36,9 @@ public class CommitEntity {
         try {
             return CommitEntity.builder()
                 .id(id)
-                .commitShortInfo(ghCommit.getCommitShortInfo().getMessage())
-                .commitDate(ghCommit.getCommitDate())
-                .committerEmail(ghCommit.getCommitShortInfo().getAuthor().getEmail())
+                .commitShortInfo(ghCommit.getCommitShortInfo().getMessage() == null ? "commit-Short-Info" : ghCommit.getCommitShortInfo().getMessage() )
+                .commitDate(ghCommit.getCommitDate() == null ? Date.from(Instant.now()) : ghCommit.getCommitDate())
+                .committerEmail(ghCommit.getCommitShortInfo().getAuthor().getEmail() == null ? "noMailFound@gg.com" : ghCommit.getCommitShortInfo().getAuthor().getEmail())
                 .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
                 .ownerRepoName(ghRepository.getName())
                 .build();
