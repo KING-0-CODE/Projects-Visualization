@@ -2,6 +2,7 @@ package com.kingcode.projectsvisualization.application.branches;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import org.kohsuke.github.GHBranch;
 import org.kohsuke.github.GHRepository;
@@ -17,8 +18,8 @@ import java.io.IOException;
 public class BranchEntity {
     @Id
     private final String id;
-    private final String branchRepoName;
-    private final String branchName;
+    private @NonNull final String branchRepoName;
+    private @NonNull final String branchName;
 
     public static BranchEntity toBranches(GHRepository ghRepository,GHBranch ghBranch)  {
         return BranchEntity.builder()

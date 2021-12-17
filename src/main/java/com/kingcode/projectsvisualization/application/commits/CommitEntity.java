@@ -20,13 +20,13 @@ import java.util.Date;
 @Document(indexName = "#{@environment.getProperty('elasticsearch.index.github.commits')}")
 public class CommitEntity {
     @Id
-    private final String id;
-    private final String commitShortInfo;
+    private @NonNull final String id;
+    private @NonNull final String commitShortInfo;
     @Field(type = FieldType.Date)
-    private final Date commitDate;
-    private final String authorName;
-    private final String committerEmail;
-    private final String ownerRepoName;
+    private @NonNull final Date commitDate;
+    private @NonNull final String authorName;
+    private @NonNull final String committerEmail;
+    private @NonNull final String ownerRepoName;
 
     public static CommitEntity toCommit(@NonNull GHCommit ghCommit, GHRepository ghRepository)  {
         String id = ghCommit.getUrl().toString().split("/")[ghCommit.getUrl().toString().split("/").length - 1];
@@ -35,7 +35,7 @@ public class CommitEntity {
                 .id(id)
                 .commitShortInfo(ghCommit.getCommitShortInfo().getMessage())
                 .commitDate(ghCommit.getCommitDate())
-                .committerEmail(ghCommit.getCommitShortInfo().getCommitter().getEmail())
+                .committerEmail(ghCommit.getCommitShortInfo().getAuthor().getEmail())
                 .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
                 .ownerRepoName(ghRepository.getName())
                 .build();
