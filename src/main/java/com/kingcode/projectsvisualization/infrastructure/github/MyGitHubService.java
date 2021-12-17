@@ -5,11 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
+import org.kohsuke.github.PagedIterable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -19,23 +22,18 @@ public class MyGitHubService implements MyGitHub {
     private final GitHub gitHub;
 
     @Override
-    public List<GHCommit> getAllCommits() {
+    public List<GHCommit> getAllCommits() throws IOException {
         List<GHCommit> ghCommits = new ArrayList<>();
-        try {
-            for (GHRepository repository : gitHub.getMyself().listRepositories()) {
-                ghCommits.addAll(repository.listCommits().toList());
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        PagedIterable<GHRepository> ghRepositories = gitHub.getMyself().listRepositories();
+        for (GHRepository ghRepository : ghRepositories) {
+            List<GHCommit> c = ghRepository.listCommits().toList();
+            ghCommits.addAll(c);
         }
         return ghCommits;
     }
 
-//    public void saveEveryRepoBranches() throws IOException {
-//        List<CommitEntity> commitEntities = new ArrayList<>();
-//        gitHub.getMyself().listRepositories().forEach(repository -> {
-//            repository.getBranches().values().forEach(x->x.);
-//        }
-//
-//    }
+    @Override
+    public List<GHRepository> getAllRepositories() throws IOException {
+        return gitHub.getMyself().listRepositories().toList();
+    }
 }

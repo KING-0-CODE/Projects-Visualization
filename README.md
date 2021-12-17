@@ -5,7 +5,7 @@
 
 ####[Link to Project Jira]("https://kingcode.atlassian.net/jira/software/c/projects/PHOTCODE/issues/PHOTCODE-6?filter=allissues")
 
-#### [Google Meet Channel](https://meet.google.com/mfm-srwx-bxv)
+#### [Google Meet Channel](https://meet.google.com/urv-ukqm-kpc?pli=1&authuser=3)
 
 #### [Github Repo](https://github.com/KING-0-CODE/Projects-Visualization.git)
 

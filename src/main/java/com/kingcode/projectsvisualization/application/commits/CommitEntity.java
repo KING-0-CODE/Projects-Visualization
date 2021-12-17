@@ -2,8 +2,10 @@ package com.kingcode.projectsvisualization.application.commits;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import org.kohsuke.github.GHCommit;
+import org.kohsuke.github.GHRepository;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -17,26 +19,25 @@ import java.util.Date;
 @Builder
 @Document(indexName = "#{@environment.getProperty('elasticsearch.index.github.commits')}")
 public class CommitEntity {
-
     @Id
     private final String id;
     private final String commitShortInfo;
     @Field(type = FieldType.Date)
     private final Date commitDate;
     private final String authorName;
-    private final String authorEmail;
+    private final String committerEmail;
     private final String ownerRepoName;
 
-    public static CommitEntity toCommit(GHCommit ghCommit)  {
+    public static CommitEntity toCommit(@NonNull GHCommit ghCommit, GHRepository ghRepository)  {
         String id = ghCommit.getUrl().toString().split("/")[ghCommit.getUrl().toString().split("/").length - 1];
         try {
             return CommitEntity.builder()
                 .id(id)
                 .commitShortInfo(ghCommit.getCommitShortInfo().getMessage())
                 .commitDate(ghCommit.getCommitDate())
-                .authorEmail(ghCommit.getAuthor().getEmail())
+                .committerEmail(ghCommit.getCommitShortInfo().getCommitter().getEmail())
                 .authorName(ghCommit.getCommitShortInfo().getAuthor().getName())
-                .ownerRepoName(ghCommit.getOwner().getName())
+                .ownerRepoName(ghRepository.getName())
                 .build();
         } catch (IOException ex) {
             ex.printStackTrace();
